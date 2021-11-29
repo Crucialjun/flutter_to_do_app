@@ -32,6 +32,7 @@ class _NewTodoState extends State<NewTodo> {
           TextButton(
               onPressed: () {
                 widget.addTodo(_todocontroller.text);
+                Navigator.of(context).pop();
               }, child: Text("Add"))
         ],
       ),

@@ -70,6 +70,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void updateTodoCompletion(int index){
+    setState(() {
+      toDos[index].completed = !toDos[index].completed;
+    });
+  }
+
+  void deleteTodo(int index){
+    setState(() {
+      toDos.removeAt(index);
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
              Counter(toDos.length,calcCompletions()),
-            TodoList(toDos),
+            TodoList(toDos,updateTodoCompletion,deleteTodo),
           ],
         ),
       ),
